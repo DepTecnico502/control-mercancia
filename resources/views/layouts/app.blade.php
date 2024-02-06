@@ -85,7 +85,7 @@
                 <!-- Contenido de la págin -->
                 <div class="w-full px-4 pt-20 md:px-20">
                     <div class="flex flex-col items-center gap-6">
-                        <h1 class="font-title text-primary text-3xl font-extrabold lg:text-4xl xl:text-6xl uppercase">@yield('titulo')</h1>
+                        <h1 class="font-title text-success text-3xl font-extrabold lg:text-4xl xl:text-6xl uppercase">@yield('titulo')</h1>
                     </div>
     
                     @yield('contenido')

@@ -27,7 +27,7 @@
             </div>
             <div>
                 <label for="monto" class="label-text">Monto</label>
-                <input type="text" wire:model.live="monto" id="monto" placeholder="Tu respuesta" class="input input-bordered w-full" />
+                <input type="number" step="0.01" wire:model.live="monto" id="monto" placeholder="Tu respuesta" class="input input-bordered w-full" />
                 <x-input-error :messages="$errors->get('monto')" class="mt-2" />
             </div>
             <div>
