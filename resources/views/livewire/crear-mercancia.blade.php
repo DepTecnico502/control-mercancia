@@ -4,6 +4,7 @@
         <div class="mx-auto mt-4 grid gap-4  md:grid-cols-2">
             <div>
                 <label for="transporte_id" class="label-text">Transporte</label>
+                <span class="text-sm text-red-600 space-y-1">*</span>
                 <select class="select select-bordered w-full" wire:model.live="transporte_id" id="transporte_id">
                     <option>-- Seleccione --</option>
                     @foreach ($transportes as $transporte)
@@ -14,11 +15,13 @@
             </div>
             <div>
                 <label for="no_guia" class="label-text">No. Guia</label>
+                <span class="text-sm text-red-600 space-y-1">*</span>
                 <input type="text" wire:model.live="no_guia" id="no_guia" placeholder="Tu respuesta" class="input input-bordered w-full" />
                 <x-input-error :messages="$errors->get('no_guia')" class="mt-2" />
             </div>
             <div>
                 <label for="bultos" class="label-text">Bultos</label>
+                <span class="text-sm text-red-600 space-y-1">*</span>
                 <input type="text" wire:model.live="bultos" id="bultos" placeholder="Tu respuesta" class="input input-bordered w-full" />
                 <x-input-error :messages="$errors->get('bultos')" class="mt-2" />
             </div>
@@ -29,6 +32,7 @@
             </div>
             <div>
                 <label for="proveedor_id" class="label-text">Proveedor</label>
+                <span class="text-sm text-red-600 space-y-1">*</span>
                 <select class="select select-bordered w-full" wire:model.live="proveedor_id" id="proveedor_id">
                     <option>-- Seleccione --</option>
                     @foreach ($proveedores as $proveedor)
@@ -39,11 +43,18 @@
             </div>
             <div>
                 <label for="recibido" class="label-text">Recibido</label>
-                <input type="text" wire:model.live="recibido" id="recibido" placeholder="Tu respuesta" class="input input-bordered w-full" />
-                <x-input-error :messages="$errors->get('recibido')" class="mt-2" />
+                <span class="text-sm text-red-600 space-y-1">*</span>
+                <select class="select select-bordered w-full" wire:model.live="recibido_id" id="recibido_id">
+                    <option>-- Seleccione --</option>
+                    @foreach ($recibidos as $recibido)
+                        <option value="{{ $recibido->id }}">{{ $recibido->recibido }}</option>
+                    @endforeach
+                </select>
+                <x-input-error :messages="$errors->get('recibido_id')" class="mt-2" />
             </div>
             <div>
                 <label for="no_pedido" class="label-text">No. pedido</label>
+                <span class="text-sm text-red-600 space-y-1">*</span>
                 <input type="text" wire:model.live="no_pedido" id="no_pedido" placeholder="Tu respuesta" class="input input-bordered w-full" />
                 <x-input-error :messages="$errors->get('no_pedido')" class="mt-2" />
             </div>

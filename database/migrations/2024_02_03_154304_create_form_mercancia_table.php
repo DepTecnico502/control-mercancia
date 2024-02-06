@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('bultos');
             $table->double('monto')->nullable();
             $table->foreignId('proveedor_id')->references('id')->on('proveedores')->onUpdate('cascade');
-            $table->string('recibido');
+            $table->foreignId('recibido_id')->constrained()->onUpdate('cascade');
             $table->string('no_pedido');
             $table->string('imagen_doc')->nullable();
             $table->timestamps();

@@ -4,8 +4,8 @@ namespace App\Livewire;
 
 use App\Models\Mercancia;
 use App\Models\Proveedor;
+use App\Models\Recibido;
 use App\Models\Transporte;
-use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -16,7 +16,7 @@ class CrearMercancia extends Component
     public $bultos;
     public $monto;
     public $proveedor_id;
-    public $recibido;
+    public $recibido_id;
     public $no_pedido;
     public $imagen_doc;
 
@@ -28,7 +28,7 @@ class CrearMercancia extends Component
         'bultos' => 'required',
         'monto' => 'nullable',
         'proveedor_id' => 'required',
-        'recibido' => 'required',
+        'recibido_id' => 'required',
         'no_pedido' => 'required',
         'imagen_doc' => 'nullable|image|max:2024',
     ];
@@ -50,7 +50,7 @@ class CrearMercancia extends Component
             'bultos' => $datos['bultos'],
             'monto' => $datos['monto'],
             'proveedor_id' => $datos['proveedor_id'],
-            'recibido' => $datos['recibido'],
+            'recibido_id' => $datos['recibido_id'],
             'no_pedido' => $datos['no_pedido'],
             'imagen_doc' => $datos['imagen_doc'],
         ]);
@@ -67,10 +67,12 @@ class CrearMercancia extends Component
         //Consultar BD
         $proveedores = Proveedor::all();
         $transportes = Transporte::all();
+        $recibidos = Recibido::all();
         
         return view('livewire.crear-mercancia', [
             'proveedores' => $proveedores,
             'transportes' => $transportes,
+            'recibidos' => $recibidos,
         ]);
     }
 }

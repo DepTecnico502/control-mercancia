@@ -5,21 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Proveedor extends Model
+class Recibido extends Model
 {
     use HasFactory;
 
-    protected $table = 'proveedores';
-
     protected $fillable = [
         'codigo',
-        'proveedor',
+        'recibido',
         'estado'
     ];
 
     public function mercancia()
     {
-        // Uno a muchos -- Un proveedor puede tener muchas mercancias
         return $this->hasMany(Mercancia::class);
     }
 }

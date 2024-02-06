@@ -16,6 +16,7 @@ class Transporte extends Model
 
     public function mercancia()
     {
+        // uno a muchos
         return $this->hasMany(Mercancia::class);
     }
 }
