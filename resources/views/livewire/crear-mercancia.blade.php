@@ -42,7 +42,7 @@
                 <x-input-error :messages="$errors->get('proveedor_id')" class="mt-2" />
             </div>
             <div>
-                <label for="recibido" class="label-text">Recibido</label>
+                <label for="recibido_id" class="label-text">Recibido</label>
                 <span class="text-sm text-red-600 space-y-1">*</span>
                 <select class="select select-bordered w-full" wire:model.live="recibido_id" id="recibido_id">
                     <option>-- Seleccione --</option>

@@ -9,6 +9,12 @@ class ProductosNuevo extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'mercancia_id',
+        'partida_id',
+        'estado'
+    ];
+
     public function mercancia()
     {
         // Uno a Uno

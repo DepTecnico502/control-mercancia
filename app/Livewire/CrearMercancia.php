@@ -52,14 +52,14 @@ class CrearMercancia extends Component
             'proveedor_id' => $datos['proveedor_id'],
             'recibido_id' => $datos['recibido_id'],
             'no_pedido' => $datos['no_pedido'],
-            'imagen_doc' => $datos['imagen_doc'],
+            'imagen_doc' => $datos['imagen_doc'] ?? null,
         ]);
 
         //Crear un mensaje
         session()->flash('mensaje', 'La entrada de mercancia se guardo correctamente.');
 
         //Redireccionar al usuario
-        return redirect()->route('mercancia.index');
+        return redirect()->route('recepcion.create');
     }
 
     public function render()

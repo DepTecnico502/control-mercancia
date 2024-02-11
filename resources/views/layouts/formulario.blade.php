@@ -12,6 +12,9 @@
 
         <!-- Styles -->
         @vite('resources/css/app.css')
+        {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-xCMG4aQD.css') }}"> --}}
+        @livewireStyles
+        @stack('styles')
     </head>
     <body>
         <div class="navbar bg-base-100 bg-opacity-90 backdrop-blur shadow-lg fixed top-0 w-full z-50">
@@ -65,5 +68,9 @@
                 </div>
             </div>
         </footer>
+        @vite('resources/js/app.js')
+        {{-- <script src="{{ asset('build/assets/app-gkggixxs.js') }}"></script> --}}
+        @livewireScripts
+        @stack('scripts')
     </body>
 </html>

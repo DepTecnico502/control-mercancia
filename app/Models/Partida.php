@@ -11,8 +11,18 @@ class Partida extends Model
 
     protected $table = 'form_partidas';
 
+    protected $fillable = [
+        'mercancia_id',
+        'no_partida',
+        'url_imagen',
+        'comentario',
+        'fecha_producto_nuevo',
+        'fecha_valorizado',
+        'fecha_liberado',
+        'fecha_colocado',
+    ];
+
     // Uno a Uno
-    
     public function mercancia()
     {
         return $this->belongsTo(Mercancia::class);

@@ -16,7 +16,11 @@ return new class extends Migration
             $table->foreignId('mercancia_id')->references('id')->on('form_mercancia')->onUpdate('cascade');
             $table->string('no_partida');
             $table->string('url_imagen')->nullable();
-            $table->string('comentario')->nullable();
+            $table->text('comentario')->nullable();
+            $table->string('fecha_producto_nuevo')->nullable();
+            $table->string('fecha_valorizado')->nullable();
+            $table->string('fecha_liberado')->nullable();
+            $table->string('fecha_colocado')->nullable();
             $table->timestamps();
         });
     }
