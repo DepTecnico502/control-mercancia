@@ -20,5 +20,9 @@
         @endif
     </div>
 
+    {{-- Filtro --}}
+    <livewire:filtrar-partidas>
+
+    {{-- Tabla --}}
     <livewire:ver-partidas>
 @endsection

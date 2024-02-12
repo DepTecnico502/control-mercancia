@@ -22,11 +22,19 @@ class VerRecepcion extends Component
 
     public function render()
     {
-        $mercancias = Mercancia::when($this->termino, function($query) {
-            $query->where('no_guia', 'LIKE', "%" . $this->termino . "%");
-        })
-        ->when($this->termino, function($query) {
-            $query->orWhere('no_pedido', 'LIKE', "%" . $this->termino . "%");
+
+        $mercancias = Mercancia::where(function($query) {
+            $query->whereHas('proveedor', function($query) {
+                $query->where('proveedor', 'LIKE', "%" . $this->termino . "%");
+            })
+            ->orWhereHas('transporte', function($query) {
+                $query->where('transporte', 'LIKE', "%" . $this->termino . "%");
+            })
+            ->orWhereHas('recibido', function($query) {
+                $query->where('recibido', 'LIKE', "%" . $this->termino . "%");
+            })
+            ->orWhere('no_guia', 'LIKE', "%" . $this->termino . "%")
+            ->orWhere('no_pedido', 'LIKE', "%" . $this->termino . "%");
         })
         ->paginate(20);
 
