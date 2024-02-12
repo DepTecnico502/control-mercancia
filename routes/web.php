@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CheckController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormMercanciaController;
 use App\Http\Controllers\FormPartidaController;
 use App\Http\Controllers\PartidaController;
@@ -21,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 // Dashboard
 
-Route::get('/', function () {
-    return 'DASHBOARD...';
-});
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 // Mercancias
 Route::get('/formulario/mercancia', [FormMercanciaController::class, 'index'])->name('recepcion.create');
