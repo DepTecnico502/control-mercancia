@@ -1,4 +1,4 @@
-@extends('layouts.formulario')
+@extends('layouts.app')
 
 @section('titulo', 'Formulario')
 
