@@ -32,7 +32,7 @@ class CrearPartida extends Component
         $datos = $this->validate();
 
         // Almacenar la imagen 
-        if($this->url_imagen !=null){
+        if($this->url_imagen){
             $url_imagen = $this->url_imagen->store('public/fotos/partida');
             $datos['url_imagen'] = str_replace('public/fotos/partida/', '', $url_imagen);
         }

@@ -38,7 +38,7 @@ class CrearMercancia extends Component
         $datos = $this->validate();
 
         //Almacenar la imagen 
-        if($this->imagen_doc !=null){
+        if($this->imagen_doc){
             $imagen_doc = $this->imagen_doc->store('public/fotos/mercancia');
             $datos['imagen_doc'] = str_replace('public/fotos/mercancia/', '', $imagen_doc);
         }
