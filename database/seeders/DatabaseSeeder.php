@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProveedorSeeder::class);
         $this->call(TransporteSeeder::class);
         $this->call(RecibidoSeeder::class);
+        $this->call(RolSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

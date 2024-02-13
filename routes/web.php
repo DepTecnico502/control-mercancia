@@ -8,6 +8,7 @@ use App\Http\Controllers\PartidaController;
 use App\Http\Controllers\ProductosNuevoController;
 use App\Http\Controllers\RecepcionController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,11 @@ Route::get('/partida/valorizado/{partida}', [CheckController::class, 'checkValor
 Route::get('/partida/liberado/{partida}', [CheckController::class, 'checkLiberado'])->middleware('auth.admin')->name('check.liberado');
 
 Route::get('/partida/colocado/{partida}', [CheckController::class, 'checkColocado'])->middleware('auth.admin')->name('check.colocado');
+
+// Usuarios
+Route::get('/usuarios', [UsuarioController::class, 'index'])->middleware('auth.admin')->name('usuarios.index');
+Route::get('/usuarios/crear', [UsuarioController::class, 'create'])->middleware('auth.admin')->name('usuario.create');
+Route::get('/usuario/editar/{user}', [UsuarioController::class, 'edit'])->middleware('auth.admin')->name('usuario.edit');
 
 // Auth
 Route::get('/login', [SessionsController::class, 'create'])->middleware('guest')->name('login.index');
