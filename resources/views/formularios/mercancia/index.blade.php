@@ -15,6 +15,7 @@
         
         {{-- Formulario para crear entrada de mercancia --}}
         <livewire:crear-mercancia>
+
+        {{-- Crear componente para modal proveedores --}}
     </div>
 @endsection
-

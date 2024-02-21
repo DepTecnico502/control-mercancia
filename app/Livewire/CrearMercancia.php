@@ -11,6 +11,9 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class CrearMercancia extends Component
 {
+    public $proveedor;
+    public $transporte;
+    
     public $transporte_id;
     public $no_guia;
     public $bultos;
@@ -62,11 +65,23 @@ class CrearMercancia extends Component
         return redirect()->route('recepcion.create');
     }
 
+    public function selectProveedor($id, $nombre)
+    {
+        $this->proveedor_id = $id;
+        $this->proveedor = $nombre;
+    }
+    
+    public function selectTransporte($id, $nombre)
+    {
+        $this->transporte_id = $id;
+        $this->transporte = $nombre;
+    }
+
     public function render()
     {
         //Consultar BD
-        $proveedores = Proveedor::all();
-        $transportes = Transporte::all();
+        $proveedores = Proveedor::paginate(20);
+        $transportes = Transporte::paginate(20);
         $recibidos = Recibido::all();
         
         return view('livewire.crear-mercancia', [

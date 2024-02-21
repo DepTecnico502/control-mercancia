@@ -12,7 +12,7 @@
 
         <!-- Styles -->
         @vite('resources/css/app.css')
-        {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-xCMG4aQD.css') }}"> --}}
+        {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-qr3ydK4O.css') }}"> --}}
         @livewireStyles
         @stack('styles')
     </head>
@@ -28,7 +28,13 @@
                 </div>
             @endauth
             <div class="flex-1">
-                <a class="btn btn-ghost text-xl">@yield('titulo')</a>
+                <a class="btn btn-ghost text-xl">
+                    @auth
+                        {{ Auth::user()->name }}
+                    @else
+                        <img src="{{ asset('assets/img/logo.png') }}" width="100" alt="Logo">
+                    @endauth
+                </a>
             </div>
             <div class="flex-none">
                 {{-- <button
@@ -256,7 +262,7 @@
         <footer class="py-10">
             <div class="flex flex-col items-center space-y-4 px-20 mx-auto md:space-y-0 md:flex-row md:justify-between">
                 <div class="text-center text-sm text-slate-600">
-                    © 2024 502Business All Rights Reserved
+                    © 502Business All Rights Reserved {{ now()->year }}
                 </div>
                 <div class="flex space-x-4">
                     <a href="">

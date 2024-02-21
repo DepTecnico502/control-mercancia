@@ -5,12 +5,14 @@
             <div>
                 <label for="transporte_id" class="label-text">Transporte</label>
                 <span class="text-sm text-red-600 space-y-1">*</span>
-                <select class="select select-bordered w-full" wire:model.live="transporte_id" id="transporte_id">
+                <input type="hidden" class="input input-bordered w-full" wire:model.live="transporte_id" id="transporte_id" readonly />
+                <input type="text" wire:model.live="transporte" id="transporte" class="input input-bordered w-full" onclick="transportes.showModal()" readonly />
+                {{-- <select class="select select-bordered w-full" wire:model.live="transporte_id" id="transporte_id">
                     <option>-- Seleccione --</option>
                     @foreach ($transportes as $transporte)
                         <option value="{{ $transporte->id }}">{{ $transporte->transporte }}</option>
                     @endforeach
-                </select>
+                </select> --}}
                 <x-input-error :messages="$errors->get('transporte_id')" class="mt-2" />
             </div>
             <div>
@@ -31,14 +33,10 @@
                 <x-input-error :messages="$errors->get('monto')" class="mt-2" />
             </div>
             <div>
-                <label for="proveedor_id" class="label-text">Proveedor</label>
+                <label for="proveedor" class="label-text">Proveedor</label>
                 <span class="text-sm text-red-600 space-y-1">*</span>
-                <select class="select select-bordered w-full" wire:model.live="proveedor_id" id="proveedor_id">
-                    <option>-- Seleccione --</option>
-                    @foreach ($proveedores as $proveedor)
-                        <option value="{{ $proveedor->id }}">{{ $proveedor->proveedor }}</option>
-                    @endforeach
-                </select>
+                <input type="hidden" class="input input-bordered w-full" wire:model.live="proveedor_id" id="proveedor_id" readonly />
+                <input type="text" class="input input-bordered w-full" wire:model.live="proveedor" id="proveedor" readonly onclick="proveedores.showModal()" />
                 <x-input-error :messages="$errors->get('proveedor_id')" class="mt-2" />
             </div>
             <div>
@@ -73,4 +71,88 @@
             </button>
         </div>
     </form>
+
+    {{-- Modal Proveedores --}}
+    <dialog id="proveedores" class="modal">
+        <div class="modal-box w-11/12 max-w-5xl">
+            <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <h3 class="font-bold text-lg">Proveedores</h3>
+            <p class="py-4">Presione la tecla ESC o haga clic en el botón ✕ para cerrar</p>
+            <div class="overflow-x-auto">
+                <table class="table">
+                    <!-- head -->
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Proveedor</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- row -->
+                        @foreach ($proveedores as $proveedor)
+                            <tr>
+                                <td>{{ $proveedor->codigo }}</td>
+                                <td>{{ $proveedor->proveedor }}</td>
+                                <td>
+                                    <form method="dialog">
+                                        <button wire:click="selectProveedor({{ $proveedor->id }}, '{{ $proveedor->proveedor }}')" class="btn btn-primary">
+                                            Seleccionar
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="my-10">
+                    {{ $proveedores->links() }}
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    {{-- Modal Transporte --}}
+    <dialog id="transportes" class="modal">
+        <div class="modal-box w-11/12 max-w-5xl">
+            <form method="dialog">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <h3 class="font-bold text-lg">Transportes</h3>
+            <p class="py-4">Presione la tecla ESC o haga clic en el botón ✕ para cerrar</p>
+            <div class="overflow-x-auto">
+                <table class="table">
+                    <!-- head -->
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Transporte</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- row -->
+                        @foreach ($transportes as $transporte)
+                            <tr>
+                                <td>{{ $transporte->codigo }}</td>
+                                <td>{{ $transporte->transporte }}</td>
+                                <td>
+                                    <form method="dialog">
+                                        <button wire:click="selectTransporte({{ $transporte->id }}, '{{ $transporte->transporte }}')" class="btn btn-primary">
+                                            Seleccionar
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="my-10">
+                    {{ $transportes->links() }}
+                </div>
+            </div>
+        </div>
+    </dialog>
 </div>

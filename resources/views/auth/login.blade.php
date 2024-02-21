@@ -5,12 +5,7 @@
 @section('contenido')
 <div class="py-8 px-4 mx-auto max-w-2xl lg:py-20">
     <form method="POST" class="bg-white rounded-lg shadow-lg p-6">
-        @csrf
-        <div class="container-is flex items-center justify-center">
-            <img src="{{ asset('assets/img/logo.png') }}" width="250" alt="">
-        </div>
-        
-            
+        @csrf            
         <div class="mb-6">
             <span class="block text-sm font-medium text-slate-700">Email</span>
             <div class="relative w-full">

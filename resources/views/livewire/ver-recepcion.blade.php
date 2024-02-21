@@ -22,7 +22,7 @@
                         <td>{{ $mercancia->transporte->transporte }}</td>
                         <td>{{ $mercancia->no_guia }}</td>
                         <td>{{ $mercancia->bultos }}</td>
-                        <td>{{ $mercancia->monto }}</td>
+                        <td>{{ $mercancia->monto ? 'Q. ' . $mercancia->monto : 'Ninguno' }}</td>
                         <td>{{ $mercancia->proveedor->proveedor }}</td>
                         <td>{{ $mercancia->recibido->recibido }}</td>
                         <td>{{ $mercancia->no_pedido }}</td>
