@@ -10,6 +10,7 @@ class Transporte extends Model
     use HasFactory;
 
     protected $fillable = [
+        'codigo',
         'transporte',
         'estado'
     ];

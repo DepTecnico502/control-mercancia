@@ -8,9 +8,12 @@ use App\Models\Recibido;
 use App\Models\Transporte;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
+use Livewire\WithPagination;
 
 class CrearMercancia extends Component
 {
+    use WithPagination;
+    
     public $proveedor;
     public $transporte;
     
