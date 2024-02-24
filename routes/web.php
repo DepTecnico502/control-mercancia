@@ -4,6 +4,7 @@ use App\Http\Controllers\CheckController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormMercanciaController;
 use App\Http\Controllers\FormPartidaController;
+use App\Http\Controllers\ListadoPrecioController;
 use App\Http\Controllers\PartidaController;
 use App\Http\Controllers\ProductosNuevoController;
 use App\Http\Controllers\ProveedorController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\RecepcionController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\TransporteController;
 use App\Http\Controllers\UsuarioController;
+use App\Models\ListadoPrecio;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -58,6 +60,13 @@ Route::get('/transportes', [TransporteController::class, 'index'])->middleware('
 Route::get('/transportes/crear', [TransporteController::class, 'crear'])->middleware('auth.admin')->name('transportes.crear');
 
 Route::post('/transportes/importar', [TransporteController::class,'import'])->middleware('auth.admin')->name('transportes.importar');
+
+// Listado de precios
+Route::get('/listado-de-precios', [ListadoPrecioController::class, 'index'])->middleware('auth.admin')->name('listado.index');
+
+Route::get('/listado-de-precios/crear', [ListadoPrecioController::class, 'crear'])->middleware('auth.admin')->name('listado.crear');
+
+Route::post('/listado-de-precios/importar', [ListadoPrecioController::class,'import'])->middleware('auth.admin')->name('listado.importar');
 
 // Usuarios
 Route::get('/usuarios', [UsuarioController::class, 'index'])->middleware('auth.admin')->name('usuarios.index');
