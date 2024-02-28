@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticuloBodegaController;
 use App\Http\Controllers\CheckController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormMercanciaController;
@@ -60,6 +61,9 @@ Route::get('/transportes', [TransporteController::class, 'index'])->middleware('
 Route::get('/transportes/crear', [TransporteController::class, 'crear'])->middleware('auth.admin')->name('transportes.crear');
 
 Route::post('/transportes/importar', [TransporteController::class,'import'])->middleware('auth.admin')->name('transportes.importar');
+
+// Articulos en bodega
+Route::get('/articulos-bodega', [ArticuloBodegaController::class, 'index'])->middleware('auth.admin')->name('articulos.bodega.index');
 
 // Listado de precios
 Route::get('/listado-de-precios', [ListadoPrecioController::class, 'index'])->middleware('auth.admin')->name('listado.index');

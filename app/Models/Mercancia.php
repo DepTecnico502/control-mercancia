@@ -42,26 +42,6 @@ class Mercancia extends Model
     
     // Una mercancia puede tener muchos productos
 
-    public function productoNuevo()
-    {
-        return $this->hasMany(ProductosNuevo::class);
-    }
-
-    public function valorizado()
-    {
-        return $this->hasMany(Valorizado::class);
-    }
-
-    public function liberado()
-    {
-        return $this->hasMany(Liberado::class);
-    }
-
-    public function colocado()
-    {
-        return $this->hasMany(colocado::class);
-    }
-
     public function partida()
     {
         return $this->hasMany(Partida::class);

@@ -29,24 +29,4 @@ class Partida extends Model
     }
 
     // Uno a muchos
-
-    public function productoNuevo()
-    {
-        return $this->hasMany(ProductosNuevo::class);
-    }
-
-    public function valorizado()
-    {
-        return $this->hasMany(Valorizado::class);
-    }
-
-    public function liberado()
-    {
-        return $this->hasMany(Liberado::class);
-    }
-
-    public function colocado()
-    {
-        return $this->hasMany(colocado::class);
-    }
 }
