@@ -12,7 +12,7 @@
 
         <!-- Styles -->
         @vite('resources/css/app.css')
-        {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-qr3ydK4O.css') }}"> --}}
+        {{-- <link rel="stylesheet" href="{{ asset('build/assets/app-KFFwm0P4.cs') }}"> --}}
         @livewireStyles
         @stack('styles')
     </head>
