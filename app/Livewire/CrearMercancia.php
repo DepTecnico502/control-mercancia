@@ -36,7 +36,7 @@ class CrearMercancia extends Component
         'proveedor_id' => 'required',
         'recibido_id' => 'required',
         'no_pedido' => 'required',
-        'imagen_doc' => 'nullable|image|max:2024',
+        'imagen_doc' => 'nullable|image',
     ];
 
     public function crearMercancia()

@@ -18,7 +18,7 @@ class CrearPartida extends Component
 
     protected $rules = [
         'no_partida' => 'required',
-        'url_imagen' => 'nullable|image|max:2024',
+        'url_imagen' => 'nullable|image',
         'comentario' => 'nullable|string|max:255'
     ];
 
