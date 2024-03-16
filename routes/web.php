@@ -34,6 +34,7 @@ Route::get('/', [DashboardController::class, 'index'])->middleware('auth')->name
 // Mercancias
 Route::get('/formulario/mercancia', [FormMercanciaController::class, 'index'])->name('recepcion.create');
 Route::get('/recepciones', [RecepcionController::class, 'index'])->middleware('auth.admin')->name('recepcion.index');
+Route::get('/recepciones/{mercancia}/edit', [RecepcionController::class, 'edit'])->middleware('auth.admin')->name('recepcion.edit');
 
 // Partidas
 Route::get('/formulario/partida/{mercancia}', [FormPartidaController::class, 'index'])->middleware('auth.admin')->name('partida.create');

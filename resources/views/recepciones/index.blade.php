@@ -7,7 +7,12 @@
         <h2 class="text-2xl md:text-4xl text-gray-600 text-center font-extrabold my-5">Buscar y Filtrar Recepciones</h2>
         <livewire:filtrar-recepciones />
     </div>
-
+    @if (session()->has('mensaje'))
+        <div role="alert" class="alert alert-success text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>{{ session('mensaje') }}</span>
+        </div>
+    @endif
     <livewire:ver-recepcion>
 @endsection
 
