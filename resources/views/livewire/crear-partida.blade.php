@@ -1,5 +1,12 @@
 <div>
-    <form wire:submit.prevent='crearPartida'>
+    <form wire:submit.prevent='crearPartida' enctype="multipart/form-data"
+        x-data="{ uploading: false, progress: 0 }"
+        x-on:livewire-upload-start="uploading = true"
+        x-on:livewire-upload-finish="uploading = false"
+        x-on:livewire-upload-cancel="uploading = false"
+        x-on:livewire-upload-error="uploading = false"
+        x-on:livewire-upload-progress="progress = $event.detail.progress"
+    >
         @csrf
         <div class="mx-auto mt-4 grid gap-4  md:grid-cols-2">
             <div>
@@ -10,8 +17,11 @@
             </div>
             <div>
                 <label for="url_imagen" class="label-text">Imagen</label>
-                <input type="file" wire:model.live="url_imagen" id="url_imagen" class="file-input file-input-success w-full" />
-                <div wire:loading wire:target="url_imagen">Uploading...</div>
+                <input type="file" wire:model.live="url_imagen" id="url_imagen" accept="image/*" class="file-input file-input-success w-full" />
+                <!-- Progress Bar -->
+                <div x-show="uploading">
+                    <progress max="100" x-bind:value="progress"></progress>
+                </div>
                 <x-input-error :messages="$errors->get('url_imagen')" class="mt-2" />
             </div>
             <div>
@@ -21,7 +31,7 @@
             </div>
         </div>
         <div class="py-5">
-            <button wire:loading.attr="disabled" class="btn btn-active btn-success text-white">
+            <button x-bind:disabled="uploading" class="btn btn-active btn-success text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                   </svg>                  
