@@ -31,7 +31,9 @@
                             src="{{ $mercancia->imagen_doc ? asset('storage/fotos/mercancia/'.$mercancia->imagen_doc) : asset('assets/img/sin_imagen.png') }}"
                                 alt="Mercancia No. {{ $mercancia->id }}"
                                 width="50px"
-                                >
+                                class="imagen-modal"
+                                {{-- onclick="my_modal_2.showModal()" --}}
+                            >
                         </td>
                         <td>
                             <a href="{{ route('partida.create', $mercancia->id) }}" class="btn btn-sm btn-success text-white">Agregar partida</a>
@@ -45,5 +47,13 @@
         <div class="my-10">
             {{ $mercancias->links() }}
         </div>
+        <dialog id="my_modal_2" class="modal">
+            <div class="modal-box w-11/12 max-w-5xl">
+                <img src="" alt="Imagen ampliada" id="imagenModalSrc">
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
     </div>
 </div>

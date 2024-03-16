@@ -38,7 +38,8 @@
                             src="{{ $partida->url_imagen ? asset('storage/fotos/partida/'.$partida->url_imagen) : asset('assets/img/sin_imagen.png') }}"
                                 alt="partida No. {{ $partida->id }}"
                                 width="50px"
-                                >
+                                class="imagen-modal"
+                            >
                         </td>
                         <td>{{ $partida->comentario }}</td>
                         <td>
@@ -94,5 +95,13 @@
         <div class="my-10">
             {{ $partidas->links() }}
         </div>
+        <dialog id="my_modal_2" class="modal">
+            <div class="modal-box w-11/12 max-w-5xl">
+                <img src="" alt="Imagen ampliada" id="imagenModalSrc">
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
     </div>
 </div>
