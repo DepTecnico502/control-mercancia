@@ -5,6 +5,7 @@
             <thead>
                 <tr>
                     {{-- Mercancia --}}
+                    <th>Fecha recepción</th>
                     <th>No Pedido</th>
                     <th>No Guía</th>
                     <th>Bultos</th>
@@ -26,6 +27,7 @@
                 @forelse ($partidas as $partida)
                     <tr>
                         {{-- Mercancia --}}
+                        <td>{{ date('d-m-y H:i', strtotime($partida->mercancia->created_at)) }}</td>
                         <td>{{ $partida->mercancia->no_pedido }}</td>
                         <td>{{ $partida->mercancia->no_guia }}</td>
                         <td>{{ $partida->mercancia->bultos }}</td>
@@ -35,7 +37,7 @@
                         <td>{{ $partida->no_partida }}</td>
                         <td>
                             <img 
-                            src="{{ $partida->url_imagen ? asset('storage/fotos/partida/'.$partida->url_imagen) : asset('assets/img/sin_imagen.png') }}"
+                            src="{{ $partida->mercancia->imagen_doc ? asset('storage/fotos/mercancia/'.$partida->mercancia->imagen_doc) : asset('assets/img/sin_imagen.png') }}"
                                 alt="partida No. {{ $partida->id }}"
                                 width="50px"
                                 class="imagen-modal"
@@ -97,7 +99,7 @@
         </div>
         <dialog id="my_modal_2" class="modal">
             <div class="modal-box w-11/12 max-w-5xl">
-                <img src="" alt="Imagen ampliada" id="imagenModalSrc">
+                <img src="" alt="Imagen ampliada" id="imagenModalSrc" class="mx-auto">
             </div>
             <form method="dialog" class="modal-backdrop">
                 <button>close</button>

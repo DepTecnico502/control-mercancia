@@ -4,6 +4,7 @@
             <!-- head -->
             <thead>
                 <tr>
+                    <th>Fecha recepción</th>
                     <th>Transporte</th>
                     <th>No Guía</th>
                     <th>Bultos</th>
@@ -19,6 +20,7 @@
             <!-- row -->
                 @forelse ($mercancias as $mercancia)
                     <tr>
+                        <td>{{ date('d-m-y H:i', strtotime($mercancia->created_at)) }}</td>
                         <td>{{ $mercancia->transporte->transporte }}</td>
                         <td>{{ $mercancia->no_guia }}</td>
                         <td>{{ $mercancia->bultos }}</td>
